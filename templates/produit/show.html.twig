@@ -1,0 +1,35 @@
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+ <link rel="stylesheet" href="{{asset('css/show.css')}}">
+    <div class="container">
+        <h1>Produit</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ produit.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ produit.name }}</td>
+                </tr>
+                <tr>
+                    <th>Prix</th>
+                    <td>{{ produit.prix }}</td>
+                </tr>
+                <tr>
+                    <th>Photo</th>
+                    <td><img src="{{asset('uploade/' ~produit.photo)}}"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_produit_index') }}" class="btn">Back to List</a>
+
+        <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn">Edit</a>
+
+        {{ include('produit/_delete_form.html.twig '  ) }}
+    </div>
+{% endblock %}

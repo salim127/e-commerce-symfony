@@ -1,0 +1,31 @@
+{% block body %}
+ <link rel="stylesheet" href='{{asset('css/list-contact.css')}}'>
+<div class="container">
+  <table class="contacts-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Date Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contact in contacts %}
+      <tr>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.subject }}</td>
+        <td>{{ contact.message }}</td>
+        <td>{{ contact.createdAt|date('d/m/Y H:i:s') }}</td>
+      </tr>
+      {% endfor %}
+      <tr><td><div class="actions">
+<a href="{{ path('app_admin_dashboard') }}">Page_admin_dashboard</a>
+</div></td></tr>
+    </tbody>
+
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+
+{{ form_start(form) }}
+   {# {{ form_widget(form) }}#}
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+
+    {{ form_label(form.prix) }}
+    {{ form_widget(form.prix) }}
+
+    {{ form_label(form.photo) }}
+    {{ form_widget(form.photo) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

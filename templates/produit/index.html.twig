@@ -1,0 +1,65 @@
+{% block contenu %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produit index</title>
+    <link rel="stylesheet" href="{{asset('css/index.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Produit index</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Prix</th>
+                    <th>Photo</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                    <tr>
+                        <td>{{ produit.id }}</td>
+                        <td>{{ produit.name }}</td>
+                        <td>{{ produit.prix }}</td>
+                        <td><img src="{{ asset('uploade/' ~ produit.photo) }}" alt="Product photo" width="120px"></td>
+                        <td class="actions">
+                            <a href="{{ path('app_produit_show', {'id': produit.id}) }}">Show</a>
+                        </td>
+                        <td class="actions">
+                            <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">Edit</a>
+                        </td>
+                        <td class="actions">
+                            <a href="{{ path('app_produit_delete_bis', {'id': produit.id}) }}">Delete</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table> <tr><td>
+        <div class="actions">
+<a href="{{ path('app_produit_new') }}">Create new</a>
+</div></td>
+<td><div class="actions">
+<a href="{{ path('app_admin_dashboard') }}">Page_admin_dashboard</a>
+</div></td></tr>
+        
+        </table>
+
+
+
+
+
+        
+    </div>
+</body>
+</html>
+
+{% endblock %}

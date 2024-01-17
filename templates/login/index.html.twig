@@ -1,0 +1,45 @@
+
+
+
+
+{% block contenu %}
+<link rel="stylesheet" href="{{asset('css/login.css')}}">
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+   {#} <form action="{{ path('app_login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password">
+
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account">
+
+        <button type="submit">login</button>
+    </form> #}
+
+<center>
+<form  action="{{ path('app_login') }}" method="post" class="form">
+    <div class="header">Sign In</div>
+    <div class="inputs">
+     <label for="username">Email:</label>
+        <input placeholder="Email" class="input" type="text" id="username" name="_username" value="{{ last_username }}">
+          <label for="password">Password:</label>
+        <input placeholder="Password" class="input" type="password" id="password" name="_password">
+    <div class="checkbox-container">
+        <label class="checkbox">
+        <input type="checkbox" id="checkbox">
+        </label>
+        <label for="checkbox" class="checkbox-text">Remember me</label>
+    </div>
+    <button class="sigin-btn" type="submit">login</button>
+    </div>
+</form>
+</center>
+
+
+    
+{% endblock %}

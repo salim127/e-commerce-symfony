@@ -1,0 +1,32 @@
+
+{% block contenu %}
+ <link rel="stylesheet" href="{{asset('css/index.css')}}">
+    <div class="container">
+        <h1>User List</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.password }}</td>
+                        <td><img src="{{ asset('uploade/' ~ user.photo) }}" alt="User photo" width="200px"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="actions">
+<a href="{{ path('app_admin_dashboard') }}">Page_admin_dashboard</a>
+</div>
+    </div>
+{% endblock %}

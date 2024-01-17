@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Produit{% endblock %}
+
+{% block contenu %}
+
+   <head>
+      <!-- Basic -->
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <!-- Site Metas -->
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="images/favicon.png" type="">
+      <title>Famms - Fashion HTML Template</title>
+      <!-- bootstrap core css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+      <!-- font awesome style -->
+      <link href="css/font-awesome.min.css" rel="stylesheet" />
+      <!-- Custom styles for this template -->
+      <link href="css/style.css" rel="stylesheet" />
+      <!-- responsive style -->
+      <link href="css/responsive.css" rel="stylesheet" />
+   </head>
+      
+      <!-- inner page section -->
+      <section class="inner_page_head">
+         <div class="container_fuild">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="full">
+                     <h3>Product Grid</h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end inner page section -->
+      <!-- product section -->
+      <section class="product_section layout_padding">
+         <div class="container">
+            <div class="heading_container heading_center">
+               <h2>
+                  Our <span>products</span>
+               </h2>
+            </div>
+            
+            <div class="row">
+             {% for produit in produits %}
+               <div class="col-sm-6 col-md-4 col-lg-3">
+               
+                  <div class="box">
+                 
+                     <div class="option_container">
+                        <div class="options">
+                           <a href="" class="option1">
+                           {{ produit.name }} 
+                           </a>
+                           <a href="" class="option2">
+                           Buy Now
+                           </a>
+                        </div>
+                     </div>
+                     <div class="img-box">
+                       <img src="{{asset('uploade/' ~produit.photo)}}"/>
+                     </div>
+                     <div class="detail-box">
+                        <h5>
+                        {{ produit.name }} 
+                        </h5>
+                        <h6>
+                                {{ produit.prix }} 
+                        </h6>
+                     </div>
+                   
+                  </div>
+                     
+               </div>
+              {% endfor %} 
+            </div>
+
+      
+
+            <div class="btn-box">
+               <a href="">
+               View All products
+               </a>
+            </div>
+         </div>
+      </section>
+      <!-- end product section -->
+     
+{% endblock %}
